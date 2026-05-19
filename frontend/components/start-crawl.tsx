@@ -37,7 +37,7 @@ export function StartCrawlCard() {
     <Card className="relative overflow-hidden p-5">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[var(--primary-soft)] to-transparent"
+        className="pointer-events-none absolute -top-12 left-1/2 h-40 w-[80%] -translate-x-1/2 rounded-full bg-gradient-to-b from-[color-mix(in_oklab,var(--primary)_18%,transparent)] via-[color-mix(in_oklab,var(--primary-2)_8%,transparent)] to-transparent blur-2xl"
       />
       <div className="relative">
         <div className="mb-4 flex items-start justify-between">
@@ -53,10 +53,14 @@ export function StartCrawlCard() {
 
         <div className="grid grid-cols-1 gap-3 md:grid-cols-[1fr_120px_120px_120px_auto]">
           <Field label="Seed URL">
-            <div className="relative">
+            <div className="group relative">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-md opacity-0 ring-2 ring-[color-mix(in_oklab,var(--primary)_30%,transparent)] transition-opacity duration-200 group-focus-within:opacity-100"
+              />
               <Globe
                 size={14}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors group-focus-within:text-primary"
               />
               <Input
                 value={url}

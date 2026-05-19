@@ -19,11 +19,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="min-h-screen">
-        <div className="flex min-h-screen">
+      <body className="bg-grain min-h-screen">
+        <div className="relative z-10 flex min-h-screen">
           <Sidebar />
           <main className="flex-1 min-w-0">
-            <div className="mx-auto max-w-[1480px] px-8 py-10 lg:px-10">
+            <div className="mx-auto max-w-[1480px] px-6 py-8 sm:px-8 sm:py-10 lg:px-12">
               {children}
             </div>
           </main>

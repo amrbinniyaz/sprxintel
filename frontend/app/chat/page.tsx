@@ -93,13 +93,20 @@ export default function ChatPage() {
     <div className="mx-auto flex min-h-[calc(100vh-5rem)] w-full max-w-[760px] flex-col">
       {empty ? (
         <div className="flex flex-1 flex-col items-center justify-center gap-6 py-10">
-          <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary to-[var(--primary-2)] text-primary-foreground shadow-[0_1px_2px_rgba(15,23,42,0.08),0_10px_22px_-8px_rgba(99,102,241,0.45)]">
-            <Sparkles size={24} strokeWidth={2.2} />
+          <div className="relative">
+            <div
+              aria-hidden
+              className="glow-pulse pointer-events-none absolute -inset-3 rounded-3xl bg-gradient-to-br from-primary/40 to-[var(--primary-2)]/30 blur-xl"
+            />
+            <div className="relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary to-[var(--primary-2)] text-primary-foreground shadow-[0_1px_2px_rgba(15,23,42,0.08),0_10px_22px_-8px_rgba(99,102,241,0.45)]">
+              <Sparkles size={24} strokeWidth={2.2} />
+            </div>
           </div>
 
           <div className="text-center">
-            <h1 className="text-3xl font-semibold tracking-tight text-foreground">
-              Ask SprXintel
+            <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
+              <span className="text-foreground">Ask </span>
+              <span className="text-gradient-primary">SprXintel</span>
             </h1>
             <p className="mt-2 text-sm text-muted-foreground">
               Natural language queries across the crawled school corpus.
@@ -119,18 +126,18 @@ export default function ChatPage() {
                 key={prompt}
                 type="button"
                 onClick={() => ask(prompt)}
-                className="group flex items-start gap-3 rounded-xl border border-border bg-card p-4 text-left text-sm text-foreground shadow-[var(--shadow-xs)] transition hover:border-[color-mix(in_oklab,var(--primary)_30%,var(--border))] hover:bg-[var(--surface-hover)]"
+                className="group card-top-light flex items-start gap-3 rounded-xl border border-border/70 p-4 text-left text-sm text-foreground shadow-[var(--shadow-xs)] transition-all duration-150 hover:-translate-y-0.5 hover:border-[color-mix(in_oklab,var(--primary)_35%,var(--border))] hover:shadow-[var(--shadow-md)]"
               >
                 <MessageSquare
                   size={15}
-                  className="mt-0.5 shrink-0 text-primary"
+                  className="mt-0.5 shrink-0 text-primary transition-transform group-hover:scale-110"
                 />
                 <span className="leading-relaxed">{prompt}</span>
               </button>
             ))}
           </div>
 
-          <div className="mt-1 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-[11px] text-muted-foreground shadow-[var(--shadow-xs)]">
+          <div className="card-top-light mt-1 inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-[11px] text-muted-foreground shadow-[var(--shadow-xs)]">
             <Sparkles size={11} className="text-primary" />
             Powered by retrieval over crawled pages
           </div>
@@ -172,7 +179,7 @@ function Composer({
   return (
     <div
       className={cn(
-        "flex items-end gap-2 rounded-xl border border-border bg-card p-2 shadow-[var(--shadow-sm)]",
+        "group relative flex items-end gap-2 rounded-xl border border-border bg-card p-2 shadow-[var(--shadow-sm)] transition-all duration-200 focus-within:border-[color-mix(in_oklab,var(--primary)_35%,var(--border))] focus-within:shadow-[0_0_0_4px_color-mix(in_oklab,var(--primary)_12%,transparent),var(--shadow-md)]",
         className,
       )}
     >
