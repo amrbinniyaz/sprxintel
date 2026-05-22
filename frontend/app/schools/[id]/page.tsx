@@ -432,13 +432,6 @@ export default function SchoolDetail({
   );
 }
 
-function scoreTone(score: number | null | undefined) {
-  if (score == null) return "default" as const;
-  if (score >= 70) return "success" as const;
-  if (score >= 40) return "info" as const;
-  return "warning" as const;
-}
-
 function healthTone(tag: string | null | undefined) {
   if (tag === "Strong content") return "success" as const;
   if (tag === "Average content") return "info" as const;
